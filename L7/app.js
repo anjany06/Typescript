@@ -74,3 +74,8 @@ function useVehicle(vehicle) {
 }
 useVehicle(v1);
 useVehicle(v2);
+//Type casting / type assertion
+// const userInput = <HTMLInputElement>document.getElementById("user-input")!; //exclaim mark isiliye kyuki m sure hu iski value h null toh ni hai
+//second method
+var userInput = document.getElementById("user-input");
+userInput.value = "Hello"; //toh input ki value h ni isliye phle yeh error dega
