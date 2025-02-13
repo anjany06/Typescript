@@ -33,6 +33,7 @@ user.greet("hello");
 
 // how to use interfaces with classes
 
+// interfaces k under hm sirf readonly hi use kr skte hai prvt protected use ni kr skte
 interface Greetable{
   name: string,
   greet(text: string): void;
@@ -43,16 +44,60 @@ interface Greetable2{
   greet(text: string): void;
 }
 
-class Person implements Greetable, Greetable2{
+// class Person implements Greetable, Greetable2{
+//   name: string;
+//   constructor(n: string){
+//     this.name = n;
+//   }
+//   greet(text: string): void{
+//     console.log(`${text}, ${this.name}`);
+    
+//   }
+// }
+// const p1 = new Person("Aman");
+// p1.greet("Hello");
+
+//extending interfaces
+interface Named{
+  readonly name: string;
+}
+interface Greetable extends Named{
+  greet(text: string): void;
+}
+class Person implements Greetable{
   name: string;
   constructor(n: string){
     this.name = n;
   }
-  greet(text: string): void{
-    console.log(`${text}, ${this.name}`);
-    
+
+  greet(text: string) : void{
+    console.log(`${text},${this.name}`); 
   }
 }
+let user1:Greetable;
+user1 = new Person("Patel");
+user1 = new Person("subham");
+user1.greet("Hello");
 
-const p1 = new Person("Aman");
-p1.greet("Hello");
+
+// how to define functions using interfaces
+// type addFunc = (a: number, b:number) => number;// first using the type alias
+
+//using interfaces
+interface addFunc{
+  (a: number, b: number): number;
+}
+
+let add : addFunc;
+
+add = (n1: number, n2:number) =>{
+  return n1 + n2;
+}
+console.log(add(3,4));
+
+//optional (?) // like iski value dena compulsory ni h
+
+interface Random{
+  readonly name: string;
+  outputName ?: string // yeh optional ager ni provide kroge toh error ni ayega
+}

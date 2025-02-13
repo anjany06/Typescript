@@ -19,8 +19,15 @@ class Person {
         this.name = n;
     }
     greet(text) {
-        console.log(`${text}, ${this.name}`);
+        console.log(`${text},${this.name}`);
     }
 }
-const p1 = new Person("Aman");
-p1.greet("Hello");
+let user1;
+user1 = new Person("Patel");
+user1 = new Person("subham");
+user1.greet("Hello");
+let add;
+add = (n1, n2) => {
+    return n1 + n2;
+};
+console.log(add(3, 4));
