@@ -52,7 +52,85 @@ function createObject<T extends string, U extends number, V extends boolean>(
 }
 
 const obj = createObject("subham",4,true);//arguments ko parameter k hi order me hi pass krna hai
-console.log(obj);
+// console.log(obj);
 
 
+
+//3. Generic Interface
+
+//ish T ki data type kuch bhi ho skta hai...
+interface Box<T>{
+  value: T;
+}
+const numberBox: Box<number> = {
+  value: 10,
+}
+const stringBox: Box<string> = {
+  value: "Dummy"
+}
+console.log(numberBox);
+console.log(stringBox);
+
+
+// Generic Default
+
+//maanlo hmne interface generic me kuch pass hi ni kiya toh use kaise pta lgega isme kya h..
+interface User <T = string>{
+  // ager hm kuch pass ni krenge toh iski type by default string ho jayegi
+  data: T,
+  status: number
+}
+
+type person2 = {
+  name: string;
+  age : number;
+}
+
+const respone : User = {data:"Success", status :200}//default to string
+const jsonRes: User<person2> = {data:{name:"value", age:67}, status:200}
+// console.log(respone);
+// console.log(jsonRes);
+
+
+
+//Generic with class
+
+// T ka mtlb yehi h ki isme hm joh bhi dataType bhejenge usko yeh accept krlegaaa
+class Container<T>{
+  private content: T;
+  constructor(content : T){
+    this.content = content;
+  }
+
+  getContent(): T{
+    return this.content;
+  }
+}
+const stringContainer = new Container<string>("Hello");
+console.log(stringContainer.getContent());
+
+const numContainer = new Container<number>(7);
+console.log(numContainer.getContent());
+
+
+
+//Generics with array
+
+function getFirst<T>(arr: T[]):T{
+  return arr[0];
+}
+const firstNumber = getFirst([1,2,3,4]);
+console.log(firstNumber);
+const firstString = getFirst(['a','b','c','d']);
+console.log(firstString);
+
+
+// generic keyof usage
+function getProperty<T extends object, K extends keyof T>(obj : T, key: K):T[K]{
+  return obj[key];
+}
+
+const person = {name: "Subhanm", age:21};
+const name1 = getProperty(person, "name");
+console.log(name1);
 
