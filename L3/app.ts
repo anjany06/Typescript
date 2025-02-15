@@ -14,6 +14,7 @@
 // const string = combine("Subham ","pandey");
 // console.log(sum, string);
 
+
 //! LITERAL TYPES
 
 // function combine(num1: number | string | boolean, num2: number | string | boolean, conversionType : "as-number" | "as-string"){
@@ -64,6 +65,7 @@ function greet(user : User){
   
 }
 greet(user);
+
 
 const sum = combine("10", "20", "as-number");
 // const string = combine("Subham ","pandey");

@@ -81,6 +81,7 @@ user1.greet("Hello");
 
 
 // how to define functions using interfaces
+
 // type addFunc = (a: number, b:number) => number;// first using the type alias
 
 //using interfaces
